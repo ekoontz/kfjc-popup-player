@@ -215,6 +215,10 @@ function startPlaying() {
   g_player_state = 'playing';
 }
 
+function stepForward() {
+    alert("step-forward implementation goes here!");
+}
+
 function stopPlaying() {
   kfjc.startPlaybackPosition = getPlayerPosition();
   soundManager.stopAll();
@@ -306,6 +310,12 @@ function onPlayButtonClicked() {
     startPlaying();
   }
   updatePlayStopButtonState();
+}
+
+function onStepForwardClicked() {
+  if (g_player_state == 'ready') {
+    stepForward();
+  }
 }
 
 function onStopButtonClicked() {

@@ -50,6 +50,7 @@ function initializeUIElements() {
   // Play-Pause button starts out disabled until SoundManager reports ready.
   $("#nav-playlist").click(togglePlaylist);
   $("#popup-play-button").click(onPlayButtonClicked);
+  $("#popup-step-forward").click(onStepForwardClicked);
   $("#popup-stop-button").click(onStopButtonClicked);
   $("#popup-hq-button").click(onSignalQualityClicked);
   $("#popup-volume-slider").on("input change", onVolumeChange);
