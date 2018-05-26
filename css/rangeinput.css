@@ -1,0 +1,64 @@
+/** http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html */
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    user-select: none;
+    /*padding-bottom: 4px;*/
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: #ccc;
+    border: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: white;
+    margin-top: -6px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    height: 4px;
+    background: #ccc;
+    border: none;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: white;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    height: 4px;
+    background: transparent;
+    border-color: transparent;
+    border-width: 6px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: white;
+}

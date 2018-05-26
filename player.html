@@ -1,0 +1,172 @@
+<html>
+<head>
+  <title>KFJC 89.7 FM</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+  <meta name="theme-color" content="#D73032" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!-- Kube style framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/css/kube.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:200,400,500" rel="stylesheet"> 
+  <!-- KFJC Player Styles (consider consolidating) -->
+  <link rel="stylesheet" type="text/css" href="css/rangeinput.css"/>
+  <link rel="stylesheet" type="text/css" href="css/player.css">
+  <link rel="shortcut icon" href="../images/nav/triangle.ico">
+</head>
+<body>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dot/1.1.2/doT.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/soundmanager2/2.97a.20150601/script/soundmanager2-jsmin.js"></script>
+  <script>
+    // Set this to the webserver of your choice for dev purposes.
+    // By default, AJAX requests will be sent to the server the page is on.
+    var kfjc_base_url = '';
+  </script>
+
+  <div id="popup-player">
+
+    <div id="popup-now-playing-overlay" class="hidden">
+      <div>Now playing: <span class="now-playing-dj"></span></div>
+      <div>Press to return</div>
+    </div>
+
+    <div id="popup-upper-controls">
+      <div id="popup-upper-margin">
+        <div id="popup-upper-info">
+          <a href="javascript:;" id="nav-toggle" class="noselect" data-click-outside="false" data-component="offcanvas" data-target="#burger-bar" data-push="false" data-width="100%"><i class="fa fa-fw fa-navicon" style="font-size: 12px"></i></a>
+          <a href="javascript:;" id="nav-playlist" class="noselect"><i id="nav-playlist-icon" class="fa fa-fw fa-angle-down"></i></a>
+          <div id="popup-selected-dj">KFJC 89.7 FM</div>
+          <div id="popup-now-playing"></div>
+        </div>
+        <div id="upper-slide-container" style="display: none">
+          <div id="playlist" style="display: none"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup-lower-controls" style="display: none">
+      <div id="popup-play-archive" style="display: none" class="text-center">
+        <div id="popup-play-archive-button" class="popup-button">
+          <a target="_blank">
+            <i class="fa fa-fw fa-play"></i>
+            Play this instead</a>
+        </div>
+      </div>
+      <div id="popup-seek" class="archive-controls" style="display: none">
+        <input type="range" name="popup-seek-slider" id="popup-seek-slider" min="0" max="100" value="80">
+      </div>
+      <div id="popup-controls">
+        <div id="popup-play-stop-button" class="popup-control-button">
+          <div id="popup-loading-button">
+             <a class="button-outline noselect" target="_blank">&nbsp;<i class="fa fa-fw fa-lg fa-cog fa-spin"></i>&nbsp;</a>
+          </div>
+          <div id="popup-play-button" style="display: none">
+            <a target="_blank"><i class="fa fa-fw fa-lg fa-play"></i></a>
+          </div>
+          <div id="popup-stop-button" style="display: none">
+            <a target="_blank"><i class="fa fa-fw fa-lg fa-stop"></i></a>
+          </div>
+        </div>
+        <div id="popup-volume">
+          <a target="_blank" id="popup-volume-button" class="popup-control-button"><i class="fa fa-fw fa-lg fa-volume-up noselect"></i></a>
+          <div id="popup-volume-slider-holder">
+          <input type="range" name="popup-volume-slider" id="popup-volume-slider" min="0" max="100" value="80" style="display: none">
+        </div>
+        </div>
+        <div id="popup-hq-button" class="popup-button live-controls">
+          <a target="_blank">HQ</a>
+        </div>
+        <div id="popup-seek-time" class="archive-controls"></div>
+      </div>
+    </div>
+
+    <div id="popup-error-message" class="hidden">Oops :(</div>
+
+    <div id="modal-archive-missing" class="modal-box hide">
+      <div class="modal">
+          <span class="close"></span>
+          <div class="modal-header">KFJC - Unfound Sound :(</div>
+          <div class="modal-body">
+            <div>We couldn't find the sounds you're looking for. Maybe we can interest you in our live stream instead?</div>
+            <div class="text-center"><br><button class="button outline red" onclick="$('.close').click();">Sure!</button></div>
+          </div>
+      </div>
+    </div>
+
+    <div id="burger-bar" class="hide">
+      <div id="burger-header">
+        <div class="large" id="title">KFJC 89.7FM Online</div>
+        <span id="burger-close" class="close big"></span>
+      </div>
+      <div id="burger-body">
+        <div id="about">
+          Independent radio, made by volunteer DJ heroes. Broadcasting live 24/7 at 89.7FM in the San Francisco Bay Area and worldwide over the internet.
+          <div id="about-links" class="red">
+            <a class="noselect" target="_blank" href="http://kfjc.org">
+              <i class="fa fa-fw fa-lg fa-globe"></i>
+            </a>
+            <a class="noselect"  target="_blank" href="https://www.facebook.com/KFJC89.7FM">
+              <i class="fa fa-fw fa-lg fa-facebook"></i>
+            </a>
+            <a class="noselect"  target="_blank" href="https://twitter.com/KFJC897fm">
+              <i class="fa fa-fw fa-lg fa-twitter"></i>
+            </a>
+            <a class="noselect"  target="_blank" href="https://play.google.com/store/apps/details?id=org.kfjc.android.player">
+              <i class="fa fa-fw fa-lg fa-android"></i>
+            </a>
+            <a class="noselect"  target="_blank" href="https://itunes.apple.com/us/app/kfjc/id975935915">
+              <i class="fa fa-fw fa-lg fa-apple"></i>
+            </a>
+          </div>
+        </div>
+        <ul id="burger-live-dj" class="archive-style">
+          <li class="noselect" onClick="loadShow(0); $('#burger-close').click();">
+            <a href="#0">
+              <span class="current-live-dj large">George Foothill</span>
+              <span class="time small"><b>On air now</b></span>
+              <i class='fa fa-angle-right muted' aria-hidden='true'></i>
+            </a>
+          </li>
+        </ul>
+        <ul id="archive-list" class="archive-style">
+          <!-- show list rendered here -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery and kube.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/kube/6.5.2/js/kube.js"></script>
+
+  <script id="showTemplate" type="text/plain">
+    {{~it.shows :show:index}}
+      <li class="noselect" onClick="loadShow({{=show.playlist_num}}); $('#burger-close').click();"><a href="#{{=show.playlist_num}}"><span class="dj">{{=show.djName}}</span><span class="time muted small"><b>{{=show.timeDayFormat}}</b> {{=show.dateFormat}}</span>
+        <i class='fa fa-angle-right muted' aria-hidden='true'></i></a></li>
+    {{~}}
+  </script>
+
+  <script id="modalPlaylistTemplate" type="text/plain">
+    <table class="table-playlist">
+      {{~it.playlist :track:index}}
+        {{? track.track_title && track.artist}}
+          <tr>
+            <td><span class="muted smaller playlist-timestamp">{{=track.time_format}}</span></td>
+            <td><span class="playlist-entry"><span class="strong">{{=track.artist}}</span>&nbsp&nbsp<span>{{=track.track_title}}</span></span></td>
+          </tr>
+        {{?? true}}
+          <tr class="playlist-hr"><td colspan=2></td></tr>
+        {{?}}
+      {{~}}
+    </table>
+  </script>
+
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/player_ui.js"></script>
+
+</body>
+</html>
