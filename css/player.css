@@ -170,6 +170,10 @@ h1 {
   display: inline-flex;
 }
 
+#popup-step-forward {
+  padding:0.5em;
+}
+
 #popup-volume {
   color: white;
   display: inline-flex;
