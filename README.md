@@ -31,8 +31,6 @@ Edit `kfjc-popup-player/nginx.conf`: replace
 `REPLACE_WITH_YOUR_HOME_DIR` with the directory where
 `kfjc-popup-player` lives, (e.g. `/Users/ekoontz` for me).
 
-```
-
 Copy kfjc-configured nginx.conf to nginx directory:
 
 ```
