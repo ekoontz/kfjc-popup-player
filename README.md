@@ -4,6 +4,8 @@ My enhancements to http://kfjc.org/player. So far they are:
 
 - 'skip backward' and 'skip forward' buttons in 10 second intervals - see screenshot below.
 
+![Screenshot](screenshot.png)
+
 # Getting Started
 
 You need a local web server to avoid security restrictions on cross-domain javascript.
