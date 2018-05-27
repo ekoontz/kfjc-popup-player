@@ -216,7 +216,13 @@ function startPlaying() {
 }
 
 function stepForward() {
-    alert("step-forward implementation goes here!");
+    if (kfjc.startPlayBackPosition != undefined) {
+	var seekOverMs = kfjc.startPlayBackPosition;
+	seekOverShow(seekOverMs+1000);
+    } else {
+	console.info("user wants to stepForward() but we have not yet started playing yet.");
+	startPlaying();
+    }
 }
 
 function stopPlaying() {
