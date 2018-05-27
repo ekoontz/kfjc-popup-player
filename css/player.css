@@ -170,7 +170,7 @@ h1 {
   display: inline-flex;
 }
 
-#popup-step-forward {
+.popup-step {
     margin-top:1px;
     background:transparent;
 }

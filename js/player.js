@@ -215,6 +215,17 @@ function startPlaying() {
   g_player_state = 'playing';
 }
 
+function stepBackward() {
+    var seekOverMs = getPlayerPosition();
+    if (seekOverMs != undefined) {
+	console.info("seeking backwards to: " + seekOverMs);
+	seekOverShow(Math.max(0,seekOverMs-5000));
+    } else {
+	console.info("user wants to stepBackward() but we have not yet started playing yet: start playing now.");
+	startPlaying();
+    }
+}
+
 function stepForward() {
     var seekOverMs = getPlayerPosition();
     if (seekOverMs != undefined) {
@@ -317,6 +328,13 @@ function onPlayButtonClicked() {
     startPlaying();
   }
   updatePlayStopButtonState();
+}
+
+function onStepBackwardClicked() {
+  console.info("User clicked on step-forward.");
+    if (g_player_state == 'playing') {
+    stepBackward();
+  }
 }
 
 function onStepForwardClicked() {
