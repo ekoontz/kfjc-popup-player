@@ -216,9 +216,10 @@ function startPlaying() {
 }
 
 function stepForward() {
-    if (kfjc.startPlayBackPosition != undefined) {
-	var seekOverMs = kfjc.startPlayBackPosition;
-	seekOverShow(seekOverMs+1000);
+    var seekOverMs = getPlayerPosition();
+    if (seekOverMs != undefined) {
+	console.info("seeking forward to: " + seekOverMs);
+	seekOverShow(seekOverMs+5000);
     } else {
 	console.info("user wants to stepForward() but we have not yet started playing yet.");
 	startPlaying();
