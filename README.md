@@ -8,7 +8,7 @@ My enhancements to http://kfjc.org/player. So far they are:
 
 # Getting Started
 
-You need a local web server to avoid security restrictions on [cross-domain](https://stackoverflow.com/questions/23959912/ajax-cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the) AJAX requests: your browser will prevent your local modifications to the player's HTML and javascript from making requests to KFJC's audio servers.
+You need a local web server to avoid security restrictions on [cross-domain](https://stackoverflow.com/questions/23959912/ajax-cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the) AJAX requests: your browser will prevent your local modifications to the player's HTML and javascript from making requests to KFJC's audio servers. Running a local web server allows you to make all requests to this local web server, and this web server can then proxy requests from your browser to KFJC.
 
 ## nginx
 
