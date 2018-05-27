@@ -320,7 +320,8 @@ function onPlayButtonClicked() {
 }
 
 function onStepForwardClicked() {
-  if (g_player_state == 'ready') {
+  console.info("User clicked on step-forward.");
+    if (g_player_state == 'playing') {
     stepForward();
   }
 }
