@@ -219,7 +219,7 @@ function stepBackward() {
     var seekOverMs = getPlayerPosition();
     if (seekOverMs != undefined) {
 	console.info("seeking backwards to: " + seekOverMs);
-	seekOverShow(Math.max(0,seekOverMs-5000));
+	seekOverShow(Math.max(0,seekOverMs-10000));
     } else {
 	console.info("user wants to stepBackward() but we have not yet started playing yet: start playing now.");
 	startPlaying();
@@ -230,7 +230,7 @@ function stepForward() {
     var seekOverMs = getPlayerPosition();
     if (seekOverMs != undefined) {
 	console.info("seeking forward to: " + seekOverMs);
-	seekOverShow(seekOverMs+5000);
+	seekOverShow(seekOverMs+10000);
     } else {
 	console.info("user wants to stepForward() but we have not yet started playing yet.");
 	startPlaying();
