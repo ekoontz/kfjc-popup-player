@@ -52,6 +52,6 @@ Restart nginx with `nginx -s reload`.
 
 # Start browsing!
 
-Go to: http://localhost:8080/kfjc
+Go to: http://localhost:8080/player
 
 You may now edit player.html or any of the CSS or Javascript files to add features or fix bugs!
