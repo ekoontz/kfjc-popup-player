@@ -175,6 +175,12 @@ h1 {
     background:transparent;
 }
 
+span.tip {
+    font-size:small;
+    font-family:sans-serif;
+    white-space:nowrap;
+}
+
 #popup-volume {
   color: white;
   display: inline-flex;
