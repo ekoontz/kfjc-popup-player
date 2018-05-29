@@ -116,6 +116,8 @@ function invalidateUi() {
     $("#popup-now-playing-overlay").hide();
     $("#popup-play-archive").hide();
     $("#popup-seek").show();
+    $("#popup-step-forward").show();
+    $("#popup-step-backward").show();
     $("#popup-controls").show();
   }
 
