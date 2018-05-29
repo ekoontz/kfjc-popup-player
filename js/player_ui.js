@@ -126,6 +126,8 @@ function invalidateUi() {
     $("#popup-selected-dj").text(kfjc.livestreamMetadata.airName);
     $(".archive-controls").hide();
     $(".live-controls").show();
+    $("#popup-step-forward").hide();
+    $("#popup-step-backward").hide();
   } else {
     $("#popup-now-playing").text(kfjc.selectedShowMetadata.nowPlayingText);
     $("#popup-selected-dj").text(kfjc.selectedShowMetadata.airName);
