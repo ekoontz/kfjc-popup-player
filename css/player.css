@@ -175,6 +175,10 @@ h1 {
     background:transparent;
 }
 
+button.popup-step:hover {
+    background-color: transparent;
+}
+
 span.tip {
     font-size:small;
     font-family:sans-serif;
