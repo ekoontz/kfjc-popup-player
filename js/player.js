@@ -331,7 +331,7 @@ function onPlayButtonClicked() {
 }
 
 function onStepBackwardClicked() {
-  console.info("User clicked on step-forward.");
+  console.info("User clicked on step-backward.");
     if (g_player_state == 'playing') {
     stepBackward();
   }
