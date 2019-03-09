@@ -62,8 +62,20 @@ cp kfjc-popup-player/nginx.conf /usr/local/etc/nginx
 Restart nginx with `nginx -s reload`.
 
 
-# Start browsing!
+## Start browsing!
 
 Go to: http://localhost:8080/player
 
 You may now edit player.html or any of the CSS or Javascript files to add features or fix bugs!
+
+# Future work
+
+## Skip-to-song
+
+Enable selecting a song from the playlist, which skips the playing to
+  that minute. For example, clicking on "Gov't Mule Featuring John
+  Scofield AfroBlue" would adance the player to exactly 10:20 am and
+  start the playback there.
+
+
+![Screenshot](playlist.png)
