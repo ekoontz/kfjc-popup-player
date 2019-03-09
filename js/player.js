@@ -39,7 +39,7 @@ function onSoundManagerReady() {
     multiShot: false,
     onfailure: onSoundFailure,
     onfinish: onSoundFinish,
-    url: 'http://netcast6.kfjc.org/;stream',
+    url: 'http://netcast.kfjc.org/;stream',
     volume: volume,
   });
   soundManager.createSound({
@@ -49,7 +49,7 @@ function onSoundManagerReady() {
     multiShot: false,
     onfailure: onSoundFailure,
     onfinish: onSoundFinish,
-    url: 'http://netcast4.kfjc.org:8974/;stream',
+    url: 'http://netcast.kfjc.org:8974/;stream',
     volume: volume,
   });
 
