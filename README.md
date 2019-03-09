@@ -10,8 +10,9 @@ Try it out here: https://hiro-tan.org/kfjc
 
 # Getting Started (development)
 
-(This is for developers -if you simply want to listen using my enhanced KFJC player, simply go
-the above link.)
+(This is for developing - (enhancing and debugging) - if you simply
+want to listen using my enhanced KFJC player, simply go the above
+link.)
 
 First, you need to run your own web server on your
 development machine to avoid security restrictions on
