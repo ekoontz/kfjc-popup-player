@@ -8,9 +8,19 @@ My enhancements to http://kfjc.org/player. So far they are:
 
 Try it out here: https://hiro-tan.org/kfjc
 
-# Getting Started
+# Getting Started (development)
 
-You need a local web server to avoid security restrictions on [cross-domain](https://stackoverflow.com/questions/23959912/ajax-cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the) AJAX requests: your browser will prevent your local modifications to the player's HTML and javascript from making requests to KFJC's audio servers. Running a local web server allows you to make all requests to this local web server, and this web server can then proxy requests from your browser to KFJC.
+If you simply want to listen using my enhanced KFJC play, simply go
+the above link. This section if you'd like to work on enhancing the
+player yourself. First, you need to run your own web server on your
+development machine to avoid security restrictions on
+[cross-domain](https://stackoverflow.com/questions/23959912/ajax-cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the)
+AJAX requests: your browser will prevent your local modifications to
+the player's HTML and javascript from making requests to KFJC's audio
+servers. Running a local web server allows you to make all requests to
+this local web server, and this web server can then proxy requests
+from your browser to netcast.kfjc.org, where the content (streaming
+audio or archived audio) is.
 
 ## nginx
 
