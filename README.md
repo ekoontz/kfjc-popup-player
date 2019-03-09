@@ -21,8 +21,7 @@ AJAX requests: your browser will prevent your local modifications to
 the player's HTML and javascript from making requests to KFJC's audio
 servers. Running a local web server allows you to make all requests to
 this local web server, and this web server can then proxy requests
-from your browser to netcast.kfjc.org, where the content (streaming
-audio or archived audio) is.
+from your browser to netcast.kfjc.org, where the content (streaming or archived audio) is.
 
 ## nginx
 
