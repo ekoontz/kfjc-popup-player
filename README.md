@@ -10,9 +10,10 @@ Try it out here: https://hiro-tan.org/kfjc
 
 # Getting Started (development)
 
-If you simply want to listen using my enhanced KFJC play, simply go
-the above link. This section if you'd like to work on enhancing the
-player yourself. First, you need to run your own web server on your
+(This is for developers -if you simply want to listen using my enhanced KFJC player, simply go
+the above link.)
+
+First, you need to run your own web server on your
 development machine to avoid security restrictions on
 [cross-domain](https://stackoverflow.com/questions/23959912/ajax-cross-origin-request-blocked-the-same-origin-policy-disallows-reading-the)
 AJAX requests: your browser will prevent your local modifications to
