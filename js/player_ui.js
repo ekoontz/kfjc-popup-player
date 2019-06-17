@@ -183,7 +183,7 @@ function loadArchives(opt_callback) {
 
 function updateMetadata() {
   $.ajax({
-    url: kfjc_base_url + '/api/playlists',
+    url: kfjc_base_url + '/api/playlists/',
     dataType: 'json',
     success: setMetadata,
     cache: false,
@@ -242,7 +242,7 @@ function updatePlaylist() {
   var playlistId = kfjc.selectedShowMetadata.id;
 
   $.ajax({
-    url: kfjc_base_url + '/api/playlists?i=' + playlistId,
+    url: kfjc_base_url + '/api/playlists/?i=' + playlistId,
     dataType: 'json',
     success: updatePlaylistCallback,
     cache: false,
