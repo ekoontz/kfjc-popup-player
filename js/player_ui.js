@@ -141,7 +141,6 @@ function invalidateUi() {
   }
 
   resize();
-  updatePlaylist();
 }
 
 function resize() {
@@ -210,6 +209,7 @@ function setMetadata(data, textStatus, jqXHR) {
     nowPlayingText: nowPlayingText
   };
   invalidateUi();
+  updatePlaylist();
 }
 
 function updateMetadataFailed() {
@@ -375,6 +375,7 @@ function loadShow(playlistNum, positionMillis) {
     kfjc.selectedShowMetadata = kfjc.livestreamMetadata;
   }
   invalidateUi();
+  updatePlaylist();
 }
 
 function metadataFromArchive(playlistNum) {
@@ -419,6 +420,7 @@ function playThisInstead() {
   kfjc.startPlaybackPosition = isSelectedShortArchive() ? 0 : 300000;
   onPlayButtonClicked();
   invalidateUi();
+  updatePlaylist();
 }
 
 function showVolume() {
