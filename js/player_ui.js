@@ -213,6 +213,7 @@ function setMetadata(data, textStatus, jqXHR) {
 }
 
 function updateMetadataFailed() {
+  console.log("updating metadata failed: using default text for UI. User should reload page to try again.");
   $("#popup-now-playing-track").text('');
   $("#popup-now-playing-artist").text('');
   $("#popup-current-dj").text('George Foothill');
