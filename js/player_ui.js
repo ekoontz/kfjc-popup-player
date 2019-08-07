@@ -16,6 +16,9 @@ var kfjc = kfjc || {
   }
 };
 
+var lastUpdateSucceeded = true;
+var startedFailingAt = Date.now();
+
 /*
  * Convenience functions to determine if this show has 60- or 70-minute archives.
  */
@@ -191,6 +194,11 @@ function updateMetadata() {
 }
 
 function setMetadata(data, textStatus, jqXHR) {
+  if (lastUpdateSucceeded == false) {
+    console.log("Updating metadata succeeded after a period of failure starting at: " +
+                startedFailingAt);
+  }
+  lastUpdateSucceeded = true;
   var liveShow = data.show_info;
   var livePlaylist = data.playlist;
   var liveTrack = livePlaylist[livePlaylist.length - 1];
@@ -213,7 +221,12 @@ function setMetadata(data, textStatus, jqXHR) {
 }
 
 function updateMetadataFailed() {
-  console.log("updating metadata failed: using default text for UI. User should reload page to try again.");
+  if (lastUpdateSucceededAt == true) {
+    startedFailingAt = Date.now();
+  }
+  lastUpdateSucceeded = false;
+  console.log("Updating metadata failed: using default text for UI. " +
+              "User should reload page to try again.");
   $("#popup-now-playing-track").text('');
   $("#popup-now-playing-artist").text('');
   $("#popup-current-dj").text('George Foothill');
