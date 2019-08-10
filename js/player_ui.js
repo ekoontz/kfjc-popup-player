@@ -221,7 +221,7 @@ function setMetadata(data, textStatus, jqXHR) {
 }
 
 function updateMetadataFailed() {
-  if (lastUpdateSucceededAt == true) {
+  if (lastUpdateSucceeded == true) {
     startedFailingAt = Date.now();
   }
   lastUpdateSucceeded = false;
