@@ -306,7 +306,8 @@ function report30s() {
     return;
   }
   var data = {
-    "type": "PLAYER_30S",
+    "type": "PLAYER_30S_ekoontz",
+    "source-code-available-at": "https://github.com/ekoontz/kfjc-popup-player",
     "msg": "showId:" + kfjc.nowPlayingMetadata.id
   }
   $.post(kfjc_base_url + "/api/metrics/report.php", data);
