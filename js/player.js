@@ -108,8 +108,6 @@ function seekOverShow(seekToMillis) {
       var thisSegmentStart = (i == 0) ? 0 : bounds[i-1];
       var extraSeek = (i == 0) ? 0 : kfjc.showList[kfjc.selectedShowMetadata.id][i].padding_ms;
       var localSeekTo = seekToMillis - thisSegmentStart + extraSeek;
-      soundManager.stopAll();
-      soundManager.unload(g_player_current_sound_id);
       g_player_current_sound_id = "archive" + i;
       soundManager.play(g_player_current_sound_id, {
         position: localSeekTo,
